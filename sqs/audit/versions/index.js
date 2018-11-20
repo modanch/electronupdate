@@ -24,14 +24,17 @@ function loadPage() {
         $("#devserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
     });
 
-    /*
     $.ajax({
         url: "http://update.modan.ch/sqs/audit/win64/RELEASES",
         context: document.body
     }).done(function (response) {
-        $("#windowtestclient").text(response);
+        var idx = response.indexOf(" sqsauditapp-");
+        var str = response.substr(idx + 13, 20);
+        var idx2 = str.indexOf("-");
+        str = str.substr(0, idx2);
+
+        $("#windowtestclient").text(str);
     });
-    */
 
     var getVnr = function (response) {
         var idx = response.indexOf(" version=");
