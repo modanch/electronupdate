@@ -125,7 +125,7 @@ function loadPage() {
     reqstart();
     makeWait("#windowtestclient");
     $.ajax({
-        url: "http://update.modan.ch/sqs/audit/win64/RELEASES"
+        url: "http://update.modan.ch/sqs/audit/win64/RELEASES?_=" + new Date().getTime()
     }).done(function (response) {
         setTimeout(function () {
             var idx = response.indexOf(" sqsauditapp-");
