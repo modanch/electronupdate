@@ -2,6 +2,26 @@ function loadPage() {
 
     var requests = 0;
 
+    var makeWait = function (name) {
+        $(name).text("");
+        $('<img />').attr({
+            'src': 'wait.gif',
+            'width': 20
+        }).appendTo(name);
+    }
+
+    var getTime = function() {
+        return Math.random() * 1000;
+    }
+
+    var generateError = function(name) {
+        $(name).text("");
+        $('<img />').attr({
+            'src': 'error.gif',
+            'width': 30
+        }).appendTo(name);
+    }
+
     var makeLink = function (name, inp, isService) {
         $(name).text(inp + "");
         $(name).css("color", "#212529");
@@ -24,79 +44,98 @@ function loadPage() {
     }
     var reqend = function () {
         requests--;
-
         if (requests == 0) {
             $("#btnRefresh").text("Refresh");
         }
-
     }
 
     reqstart();
     makeLink("#prodserver_label", "sqswebapi.modan.ch", true);
+    makeWait("#prodserver");
     $.ajax({
         url: "https://sqswebapi.modan.ch/breeze/auditbreeze/getserverinfo"
     }).done(function (response) {
-        $("#prodserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
-        reqend();
+        setTimeout(function () {
+            $("#prodserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
     });
 
     reqstart();
     makeLink("#preserver_label", "sqswebapipre.modan.ch", true);
+    makeWait("#preserver");
     $.ajax({
         url: "https://sqswebapipre.modan.ch/breeze/auditbreeze/getserverinfo"
     }).done(function (response) {
-        $("#preserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
-        reqend();
+        setTimeout(function () {
+            $("#preserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
     });
 
     reqstart();
     makeLink("#testserver_label", "sqswebapitest.modan.ch", true);
+    makeWait("#testserver");
     $.ajax({
         url: "https://sqswebapitest.modan.ch/breeze/auditbreeze/getserverinfo"
     }).done(function (response) {
-        $("#testserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
-        reqend();
+        setTimeout(function () {
+            $("#testserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
     });
 
     reqstart();
     makeLink("#devserver_label", "sqswebapidev.modan.ch", true);
+    makeWait("#devserver");
     $.ajax({
         url: "https://sqswebapidev.modan.ch/breeze/auditbreeze/getserverinfo"
     }).done(function (response) {
-        $("#devserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
-        reqend();
+        setTimeout(function () {
+            $("#devserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
     });
 
     reqstart();
     makeLink("#axserver_label", "sqswebapiaxsync.modan.ch", true);
+    makeWait("#axserver");
     $.ajax({
         url: "https://sqswebapiaxsync.modan.ch/breeze/auditbreeze/getserverinfo"
     }).done(function (response) {
-        $("#axserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
-        reqend();
+        setTimeout(function () {
+            $("#axserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
     });
 
     reqstart();
     makeLink("#axtestserver_label", "sqswebapiaxsync.modan.ch", true);
+    makeWait("#axtestserver");
     $.ajax({
         url: "https://sqswebapiaxsync.modan.ch/breeze/auditbreeze/getserverinfo"
     }).done(function (response) {
-        $("#axtestserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
-        reqend();
+        setTimeout(function () {
+            $("#axtestserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
     });
 
     //electron
     reqstart();
+    makeWait("#windowtestclient");
     $.ajax({
         url: "http://update.modan.ch/sqs/audit/win64/RELEASES"
     }).done(function (response) {
-        var idx = response.indexOf(" sqsauditapp-");
-        var str = response.substr(idx + 13, 20);
-        var idx2 = str.indexOf("-");
-        str = str.substr(0, idx2);
+        setTimeout(function () {
+            var idx = response.indexOf(" sqsauditapp-");
+            var str = response.substr(idx + 13, 20);
+            var idx2 = str.indexOf("-");
+            str = str.substr(0, idx2);
 
-        $("#windowtestclient").text(str);
-        reqend();
+            $("#windowtestclient").text(str);
+            reqend();
+        }, getTime());
     });
 
     var getVnr = function (response) {
@@ -115,58 +154,70 @@ function loadPage() {
 
     //webapps
     reqstart();
+    makeWait("#prodclient");
     makeLink("#prodclient_label", "sqsauditapp.modan.ch");
     $.ajax({
         url: "https://sqsauditapp.modan.ch/index.html",
         crossDomain: true
     }).done(function (response) {
-        var str = getVnr(response);
-        $("#prodclient").text(vstrwp(str));
-        reqend();
+        setTimeout(function () {
+            var str = getVnr(response);
+            $("#prodclient").text(vstrwp(str));
+            reqend();
+        }, getTime());
     }).fail(function () {
-        $("#prodclient").text("error");
+        generateError("#prodclient");
         reqend();
     });
 
     reqstart();
+    makeWait("#preclient");
     makeLink("#preclient_label", "sqspre.modan.ch");
     $.ajax({
         url: "https://sqspre.modan.ch/index.html",
         crossDomain: true
     }).done(function (response) {
-        var str = getVnr(response);
-        $("#preclient").text(vstrwp(str));
-        reqend();
+        setTimeout(function () {
+            var str = getVnr(response);
+            $("#preclient").text(vstrwp(str));
+            reqend();
+        }, getTime());
     }).fail(function () {
-        $("#preclient").text("error");
+        generateError("#preclient");
         reqend();
     });
 
     reqstart();
+    makeWait("#testclient");
     makeLink("#testclient_label", "sqstest.modan.ch");
     $.ajax({
         url: "https://sqstest.modan.ch/index.html",
         crossDomain: true
     }).done(function (response) {
-        var str = getVnr(response);
-        $("#testclient").text(vstrwp(str));
-        reqend();
+        setTimeout(function () {
+            var str = getVnr(response);
+            $("#testclient").text(vstrwp(str));
+            reqend();
+        }, getTime());
     }).fail(function () {
-        $("#testclient").text("error");
+        generateError("#testclient");
         reqend();
     });
 
     reqstart();
+    makeWait("#axtestclient");
     makeLink("#axtestclient_label", "sqsaxtest.modan.ch");
     $.ajax({
         url: "https://sqsaxtest.modan.ch/index.html",
         crossDomain: true
     }).done(function (response) {
-        var str = getVnr(response);
-        $("#axtestclient").text(vstrwp(str));
-        reqend();
+        setTimeout(function () {
+            var str = getVnr(response);
+            $("#axtestclient").text(vstrwp(str));
+            reqend();
+        }, getTime());
     }).fail(function () {
-        $("#axtestclient").text("error");
+        generateError("#axtestclient");
         reqend();
     });
 
