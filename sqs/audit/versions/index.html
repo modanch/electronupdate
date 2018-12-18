@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body onload="loadPage()">
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">SQS</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a id="btnRefresh" class="nav-item nav-link" onclick="loadPage()" href="#">Refresh</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 col-sm-1"></div>
+            <div class="col-6 col-sm-10 py-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>Versionen</h2>
+                        </div>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th></th>
+                                    <th class="text-right">Service</th>
+                                    <th class="text-right">App</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr class="bg-primary">
+                                    <td colspan="3" class="text-light bold">Web</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>Produktion</td>
+                                    <td class="text-right"><a id="prodserver_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="prodserver"></span></td>
+                                    <td class="text-right"><a id="prodclient_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="prodclient"></span></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>Prerelease</td>
+                                    <td class="text-right"><a id="preserver_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="preserver"></span></td>
+                                    <td class="text-right"><a id="preclient_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="preclient"></span></td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td>Test</td>
+                                    <td class="text-right"><a id="testserver_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="testserver"></span></td>
+                                    <td class="text-right"><a id="testclient_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="testclient"></span></td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td>Dev</td>
+                                    <td class="text-right"><a id="devserver_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="devserver"></span></td>
+                                    <td class="text-right small">ohne App</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td>AX</td>
+                                    <td class="text-right"><a id="axserver_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="axserver"></span></td>
+                                    <td class="text-right small">ohne App</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td>AX-Test</td>
+                                    <td class="text-right"><a id="axtestserver_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="axtestserver"></span></td>
+                                    <td class="text-right"><a id="axtestclient_label" class="small"></a>&nbsp;<span
+                                            class="font-weight-bold" id="axtestclient"></span></td>
+                                </tr>
+                                <tr class="bg-primary">
+                                    <td colspan="3" class="text-light bold">Windows</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>Test</td>
+                                    <td class="text-right small">Test-Service</td>
+                                    <td class="text-right"><a style="color: #212529;" class="small" href="http://update.modan.ch/sqs/audit/win64/SQSAuditAppSetup64.exe">Setup-Package </a><span class="text-right font-weight-bold" id="windowtestclient"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 col-sm-1"></div>
+        </div>
+    </div>
+</body>
+
+</html>
