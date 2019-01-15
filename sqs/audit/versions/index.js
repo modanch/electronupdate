@@ -125,7 +125,7 @@ function loadPage() {
     reqstart();
     makeWait("#windowtestclient");
     $.ajax({
-        url: "http://update.modan.ch/sqs/audit/win64/RELEASES?_=" + new Date().getTime()
+        url: "http://update.modan.ch/sqs/audit/test/win64/RELEASES?_=" + new Date().getTime()
     }).done(function (response) {
         setTimeout(function () {
             var idx = response.indexOf(" sqsauditapp-");
@@ -134,6 +134,22 @@ function loadPage() {
             str = str.substr(0, idx2);
 
             $("#windowtestclient").text(str);
+            reqend();
+        }, getTime());
+    });
+
+    reqstart();
+    makeWait("#windowclient");
+    $.ajax({
+        url: "http://update.modan.ch/sqs/audit/win64/RELEASES?_=" + new Date().getTime()
+    }).done(function (response) {
+        setTimeout(function () {
+            var idx = response.indexOf(" sqsauditapp-");
+            var str = response.substr(idx + 13, 20);
+            var idx2 = str.indexOf("-");
+            str = str.substr(0, idx2);
+
+            $("#windowclient").text(str);
             reqend();
         }, getTime());
     });
