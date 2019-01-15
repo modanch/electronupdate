@@ -129,7 +129,7 @@ function loadPage() {
     }).done(function (response) {
         setTimeout(function () {
             var idx = response.indexOf(" sqsauditapptest-");
-            var str = response.substr(idx + 13, 20);
+            var str = response.substr(idx + 17, 20);
             var idx2 = str.indexOf("-");
             str = str.substr(0, idx2);
 
