@@ -128,7 +128,7 @@ function loadPage() {
         url: "http://update.modan.ch/sqs/audit/test/win64/RELEASES?_=" + new Date().getTime()
     }).done(function (response) {
         setTimeout(function () {
-            var idx = response.indexOf(" sqsauditapp-");
+            var idx = response.indexOf(" sqsauditapptest-");
             var str = response.substr(idx + 13, 20);
             var idx2 = str.indexOf("-");
             str = str.substr(0, idx2);
