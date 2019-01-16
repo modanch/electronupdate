@@ -110,10 +110,10 @@ function loadPage() {
     });
 
     reqstart();
-    makeLink("#axtestserver_label", "sqswebapiaxsync.modan.ch", true);
+    makeLink("#axtestserver_label", "sqswebapiaxtest.modan.ch", true);
     makeWait("#axtestserver");
     $.ajax({
-        url: "https://sqswebapiaxsync.modan.ch/breeze/auditbreeze/getserverinfo"
+        url: "https://sqswebapiaxtest.modan.ch/breeze/auditbreeze/getserverinfo"
     }).done(function (response) {
         setTimeout(function () {
             $("#axtestserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
