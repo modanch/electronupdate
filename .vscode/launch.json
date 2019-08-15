@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://127.0.0.1:5500/sqs/audit/versions",
+            "url": "http://127.0.0.1:5510/sqs/audit/versions",
             "webRoot": "${workspaceFolder}"
         }
     ]
