@@ -12,32 +12,14 @@
 </head>
 
 <body onload="loadPage()">
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-title">
-                    <h2>App-Versionen</h2>
-                </div>
-                <table class="table">
-                    <tbody>
-                        <tr class="bg-primary">
-                            <td colspan="2" class="text-light bold">Bitte wählen Sie ihre Version:</td>
-                        </tr>
-                        <tr class="bg-light">
-                            <td><a href="https://update.modan.ch/sqs/audit/win64/SQSAuditAppSetup64.exe">Windows 64Bit
-                                    Download</a></td>
-                            <td class="text-right"><span class="font-weight-bold" id="windowclient"></span></td>
-                        </tr>
-                        <tr class="bg-light">
-                            <td><a style="pointer-events: none; opacity: 0.6;" href="">Mac 64Bit Download</a></td>
-                            <td style="opacity: 0.6;" class="text-right"><span class="font-weight-bold" id="macclient">noch
-                                    nicht verfügbar</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
+    <div class="list-group">
+        <p class="list-group-item active">App-Versionen</p>
+        <a class="list-group-item" target="_blank"
+            href="https://update.modan.ch/sqs/audit/win64/SQSAuditAppSetup64.exe">Windows 64Bit Download <span class="small" id="windowclient"></span></a>
+        <a class="list-group-item disabled">Mac 64Bit Download <span class="small" id="macclient">nicht verfügbar</span></a>
     </div>
+
 </body>
 
 </html>
