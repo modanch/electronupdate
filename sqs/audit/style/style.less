@@ -1,20 +1,47 @@
+@red: #A51618;
+
 @blue: #024079;
 @blue75: fade(@blue, 75%);
+@blue50: fade(@blue, 50%);
+@blue15: fade(@blue, 15%);
+
+.box-shadow-m (@x: 0px, @y: 3px, @blur: 5px, @color) {
+	-webkit-box-shadow: @x @y @blur @color;
+	-moz-box-shadow: @x @y @blur @color;
+	box-shadow: @x @y @blur @color;
+}
+
+.actionGlow {
+    border: 1px solid @red;
+    .box-shadow-m(0px, 0px, 5px, @red);
+}
 
 
 body {
+	font-family: CaeciliaRoman, Helvetica, Arial, sans-serif;
 }
 
 .card-title {
-    h2 {
-        font-size: 1.4rem;
-    }
+	h2 {
+		font-size: 1.4rem;
+	}
 }
 
 .bg-primary {
-    background-color: @blue75 !important;
+	background-color: @blue75 !important;
 }
+.list-group-item {
 
+    border-radius: 0px;
+
+	&.active {
+		background-color: @blue75 !important;
+		border-color: @blue50;
+	}
+}
 a {
-    color: @blue;
+	color: @blue;
+	&:hover {
+        .actionGlow;
+	}
 }

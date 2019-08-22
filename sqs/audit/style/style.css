@@ -1,9 +1,31 @@
+.actionGlow {
+  border: 1px solid #A51618;
+  -webkit-box-shadow: 0px 0px 5px #A51618;
+  -moz-box-shadow: 0px 0px 5px #A51618;
+  box-shadow: 0px 0px 5px #A51618;
+}
+body {
+  font-family: CaeciliaRoman, Helvetica, Arial, sans-serif;
+}
 .card-title h2 {
   font-size: 1.4rem;
 }
 .bg-primary {
   background-color: rgba(2, 64, 121, 0.75) !important;
 }
+.list-group-item {
+  border-radius: 0px;
+}
+.list-group-item.active {
+  background-color: rgba(2, 64, 121, 0.75) !important;
+  border-color: rgba(2, 64, 121, 0.5);
+}
 a {
   color: #024079;
+}
+a:hover {
+  border: 1px solid #A51618;
+  -webkit-box-shadow: 0px 0px 5px #A51618;
+  -moz-box-shadow: 0px 0px 5px #A51618;
+  box-shadow: 0px 0px 5px #A51618;
 }
