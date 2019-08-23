@@ -12,7 +12,7 @@
 </head>
 
 <body onload="loadPage()">
-    <header class="navbar navbar-expand-lg navbar-light bg-light">
+    <header class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">SQS</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
@@ -26,13 +26,10 @@
             <div class="col-6 col-sm-10 py-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-title">
-                            <h2>Versionen</h2>
-                        </div>
                         <table class="table">
-                            <thead class="thead-dark">
+                            <thead>
                                 <tr>
-                                    <th></th>
+                                    <th>Versionen</th>
                                     <th class="text-right">Service</th>
                                     <th class="text-right">App</th>
                                 </tr>
@@ -58,7 +55,7 @@
                                             class="font-weight-bold" id="preclient"></span></td>
                                 </tr>
                                 <tr class="bg-white">
-                                    <td>Test<span class="small"> - Bolt - <a style="color: #212529;"
+                                    <td>Test<span class="small"> - Bolt - <a
                                                 href="https://sqswebapitest.modan.ch/hangfire" 
                                                 target="_blank">Hangfire
                                             </a></span></td>
@@ -86,7 +83,7 @@
                                             class="font-weight-bold" id="axtestclient"></span></td>
                                 </tr>
                                 <tr class="bg-white">
-                                    <td>AX-Test-Dev<span class="small"> - Bolt - <a style="color: #212529;"
+                                    <td>AX-Test-Dev<span class="small"> - Bolt - <a
                                                 target="_blank"
                                                 href="https://sqswebapiaxtestdev.modan.ch/hangfire">Hangfire
                                             </a></span></td>
@@ -101,21 +98,21 @@
                                 <tr class="bg-light">
                                     <td>Produktion</td>
                                     <td class="text-right small">Produktion-Service</td>
-                                    <td class="text-right"><a style="color: #212529;" class="small"
+                                    <td class="text-right"><a class="small"
                                             href="http://update.modan.ch/sqs/audit/win64/SQSAuditAppSetup64.exe">Setup-Package
                                         </a><span class="text-right font-weight-bold" id="windowclient"></span></td>
                                 </tr>
                                 <tr class="bg-white">
                                     <td>Test</td>
                                     <td class="text-right small">Test-Service</td>
-                                    <td class="text-right"><a style="color: #212529;" class="small"
+                                    <td class="text-right"><a class="small"
                                             href="http://update.modan.ch/sqs/audit/test/win64/SQSAuditAppSetup64.exe">Test-Setup-Package
                                         </a><span class="text-right font-weight-bold" id="windowtestclient"></span></td>
                                 </tr>
                                 <tr class="bg-white">
                                     <td>Dev</td>
                                     <td class="text-right small">Dev-Service</td>
-                                    <td class="text-right">App zur Entwicklungszeit</td>
+                                    <td class="text-right small">App zur Entwicklungszeit</td>
                                 </tr>
                             </tbody>
                         </table>

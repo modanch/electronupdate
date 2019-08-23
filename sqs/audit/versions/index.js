@@ -24,7 +24,6 @@ function loadPage() {
 
     var makeLink = function (name, inp, isService, isBolt) {
         $(name).text(inp + "");
-        $(name).css("color", "#212529");
 
         if (isService) {
             if (isBolt) {
