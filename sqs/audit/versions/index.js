@@ -89,18 +89,6 @@ function loadPage() {
     });
 
     reqstart();
-    makeLink("#axserver_label", "sqswebapiaxsync.modan.ch", true, false);
-    makeWait("#axserver");
-    $.ajax({
-        url: "https://sqswebapiaxsync.modan.ch/breeze/auditbreeze/getserverinfo"
-    }).done(function (response) {
-        setTimeout(function () {
-            $("#axserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
-            reqend();
-        }, getTime());
-    });
-
-    reqstart();
     makeLink("#axtestserver_label", "sqswebapiaxtest.modan.ch", true, true);
     makeWait("#axtestserver");
     $.ajax({
