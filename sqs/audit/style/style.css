@@ -22,8 +22,10 @@
 }
 body {
   font-family: CaeciliaRoman, Helvetica, Arial, sans-serif;
-  background: url(hg_blue_2048px.png);
   cursor: default;
+}
+body.sqsbg {
+  background: url(hg_blue_2048px.png);
 }
 .card-title h2 {
   font-size: 1.4rem;
