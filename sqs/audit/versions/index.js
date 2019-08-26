@@ -56,7 +56,7 @@ function loadPage() {
     makeLink("#prodserver_label", "sqswebapi.modan.ch", true, false);
     makeWait("#prodserver");
     $.ajax({
-        url: "https://sqswebapi.modan.ch/breeze/auditbreeze/getserverinfo"
+        url: "https://sqswebapi.modan.ch/breeze/auditboltbreeze/getserverinfo"
     }).done(function (response) {
         setTimeout(function () {
             $("#prodserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
