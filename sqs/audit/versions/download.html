@@ -8,35 +8,19 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="/sqs/audit/style/style.css">
 </head>
 
 <body onload="loadPage()">
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-title">
-                    <h2>App-Versionen</h2>
-                </div>
-                <table class="table">
-                    <tbody>
-                        <tr class="bg-primary">
-                            <td colspan="2" class="text-light bold">Bitte wählen Sie ihre Version:</td>
-                        </tr>
-                        <tr class="bg-light">
-                            <td><a href="https://update.modan.ch/sqs/audit/win64/SQSAuditAppSetup64.exe">Windows 64Bit
-                                    Download</a></td>
-                            <td class="text-right"><span class="font-weight-bold" id="windowclient"></span></td>
-                        </tr>
-                        <tr class="bg-light">
-                            <td><a style="pointer-events: none; opacity: 0.6;" href="">Mac 64Bit Download</a></td>
-                            <td style="opacity: 0.6;" class="text-right"><span class="font-weight-bold" id="macclient">noch
-                                    nicht verfügbar</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
+    <h4 class="list-group-title">App-Versionen</h4>
+
+    <div class="list-group">
+        <a class="list-group-item" target="_blank"
+            href="https://update.modan.ch/sqs/audit/win64/SQSAuditAppSetup64.exe">Windows 64Bit Download <span class="small" id="windowclient"></span></a>
+        <a class="list-group-item disabled">Mac 64Bit Download <span class="small" id="macclient">nicht verfügbar</span></a>
     </div>
+
 </body>
 
 </html>

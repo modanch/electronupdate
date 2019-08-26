@@ -87,7 +87,7 @@ function loadPage() {
             var idx2 = str.indexOf("-");
             str = str.substr(0, idx2);
 
-            $("#windowclient").text(str);
+            $("#windowclient").text("Version: "+str);
             reqend();
         }, getTime());
     });

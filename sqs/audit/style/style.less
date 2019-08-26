@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'CaeciliaBold';
+  src: url('fonts/Caecilia/Caecilia-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'CaeciliaBoldItalic';
+  src: url('fonts/Caecilia/Caecilia-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'CaeciliaLight';
+  src: url('fonts/Caecilia/Caecilia-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'CaeciliaRoman';
+  src: url('fonts/Caecilia/Caecilia-Roman.ttf') format('truetype');
+}
+
+
+@red: #a51618;
+@red50: fade(@red, 50%);
+@red75: fade(@red, 75%);
+
+@blue: #024079;
+@blue75: fade(@blue, 75%);
+@blue50: fade(@blue, 50%);
+@blue25: fade(@blue, 25%);
+@blue15: fade(@blue, 15%);
+
+.box-shadow-m(@x: 0px, @y: 3px, @blur: 5px, @color) {
+	-webkit-box-shadow: @x @y @blur @color;
+	-moz-box-shadow: @x @y @blur @color;
+	box-shadow: @x @y @blur @color;
+}
+
+.actionGlow {
+	border: 1px solid @red;
+	.box-shadow-m(0px, 0px, 5px, @red);
+}
+
+body {
+	font-family: CaeciliaRoman, Helvetica, Arial, sans-serif;
+	cursor: default;
+	background-color: transparent;
+	&.sqsbg {
+		background: url(hg_blue_2048px.png);
+	}
+}
+
+
+.card-title {
+	h2 {
+		font-size: 1.4rem;
+	}
+}
+
+.bg-primary {
+	background-color: @blue75 !important;
+}
+
+h4.list-group-title {
+	color: @blue;
+	font-size: 18px;
+	margin-top: 8px;
+}
+
+.card {
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar {
+	background-color: rgba(255, 255, 255, 0.6);
+
+	.navbar-brand {
+		font-weight: bold;
+		color: @red50;
+		font-size: 22px;
+		background-color: white;
+		padding: 12px;
+		border-radius: 26px;
+	}
+	.navbar-nav {
+		.nav-item {
+			background-color: white;
+			padding: 8px;
+			border-radius: 22px;
+		}
+		.nav-link {
+			color: @red50;
+		}
+	}
+}
+
+.list-group {
+	.list-group-item {
+		background-color: rgba(255, 255, 255, 0.6);
+		border: 1px solid @blue25;
+		font-size: 15px;
+
+		margin-top: 8px;
+		border-radius: 0px;
+
+		&.title {
+			background-color: @blue75 !important;
+			border-color: @blue50;
+			cursor: pointer;
+			color: white;
+		}
+	}
+	a {
+		color: @blue;
+		&:hover {
+			.actionGlow;
+		}
+	}
+}
+
+.table {
+	a {
+		color: @red75;
+	}
+}

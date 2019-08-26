@@ -1,0 +1,20 @@
+{
+  "name": "update.modan.ch",
+  "version": "1.0.0",
+  "description": "electronupdate",
+  "devDependencies": {
+    "gulp-less": "*",
+    "gulp-rename": "*"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://modanch:so7di2um@github.com/modanch/electronupdate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/modanch/electronupdate/issues"
+  },
+  "homepage": "https://github.com/modanch/electronupdate#readme"
+}

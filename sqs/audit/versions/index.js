@@ -22,12 +22,15 @@ function loadPage() {
         }).appendTo(name);
     }
 
-    var makeLink = function (name, inp, isService) {
+    var makeLink = function (name, inp, isService, isBolt) {
         $(name).text(inp + "");
-        $(name).css("color", "#212529");
 
         if (isService) {
-            $(name).attr("href", "https://" + inp + "/breeze/auditbreeze/getserverinfo");
+            if (isBolt) {
+                $(name).attr("href", "https://" + inp + "/breeze/auditboltbreeze/getserverinfo");
+            } else {
+                $(name).attr("href", "https://" + inp + "/breeze/auditbreeze/getserverinfo");
+            }
         } else {
             $(name).attr("href", "https://" + inp + "");
         }
@@ -50,10 +53,10 @@ function loadPage() {
     }
 
     reqstart();
-    makeLink("#prodserver_label", "sqswebapi.modan.ch", true);
+    makeLink("#prodserver_label", "sqswebapi.modan.ch", true, false);
     makeWait("#prodserver");
     $.ajax({
-        url: "https://sqswebapi.modan.ch/breeze/auditbreeze/getserverinfo"
+        url: "https://sqswebapi.modan.ch/breeze/auditboltbreeze/getserverinfo"
     }).done(function (response) {
         setTimeout(function () {
             $("#prodserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
@@ -62,10 +65,10 @@ function loadPage() {
     });
 
     reqstart();
-    makeLink("#preserver_label", "sqswebapipre.modan.ch", true);
+    makeLink("#preserver_label", "sqswebapipre.modan.ch", true, true);
     makeWait("#preserver");
     $.ajax({
-        url: "https://sqswebapipre.modan.ch/breeze/auditbreeze/getserverinfo"
+        url: "https://sqswebapipre.modan.ch/breeze/auditboltbreeze/getserverinfo"
     }).done(function (response) {
         setTimeout(function () {
             $("#preserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
@@ -74,10 +77,10 @@ function loadPage() {
     });
 
     reqstart();
-    makeLink("#testserver_label", "sqswebapitest.modan.ch", true);
+    makeLink("#testserver_label", "sqswebapitest.modan.ch", true, true);
     makeWait("#testserver");
     $.ajax({
-        url: "https://sqswebapitest.modan.ch/breeze/auditbreeze/getserverinfo"
+        url: "https://sqswebapitest.modan.ch/breeze/auditboltbreeze/getserverinfo"
     }).done(function (response) {
         setTimeout(function () {
             $("#testserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
@@ -86,37 +89,25 @@ function loadPage() {
     });
 
     reqstart();
-    makeLink("#devserver_label", "sqswebapidev.modan.ch", true);
-    makeWait("#devserver");
-    $.ajax({
-        url: "https://sqswebapidev.modan.ch/breeze/auditbreeze/getserverinfo"
-    }).done(function (response) {
-        setTimeout(function () {
-            $("#devserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
-            reqend();
-        }, getTime());
-    });
-
-    reqstart();
-    makeLink("#axserver_label", "sqswebapiaxsync.modan.ch", true);
-    makeWait("#axserver");
-    $.ajax({
-        url: "https://sqswebapiaxsync.modan.ch/breeze/auditbreeze/getserverinfo"
-    }).done(function (response) {
-        setTimeout(function () {
-            $("#axserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
-            reqend();
-        }, getTime());
-    });
-
-    reqstart();
-    makeLink("#axtestserver_label", "sqswebapiaxtest.modan.ch", true);
+    makeLink("#axtestserver_label", "sqswebapiaxtest.modan.ch", true, true);
     makeWait("#axtestserver");
     $.ajax({
-        url: "https://sqswebapiaxtest.modan.ch/breeze/auditbreeze/getserverinfo"
+        url: "https://sqswebapiaxtest.modan.ch/breeze/auditboltbreeze/getserverinfo"
     }).done(function (response) {
         setTimeout(function () {
             $("#axtestserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
+    });
+
+    reqstart();
+    makeLink("#axtestdevserver_label", "sqswebapiaxtestdev.modan.ch", true, true);
+    makeWait("#axtestdevserver");
+    $.ajax({
+        url: "https://sqswebapiaxtestdev.modan.ch/breeze/auditboltbreeze/getserverinfo"
+    }).done(function (response) {
+        setTimeout(function () {
+            $("#axtestdevserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
             reqend();
         }, getTime());
     });

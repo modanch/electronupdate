@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'CaeciliaBold';
+  src: url('fonts/Caecilia/Caecilia-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'CaeciliaBoldItalic';
+  src: url('fonts/Caecilia/Caecilia-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'CaeciliaLight';
+  src: url('fonts/Caecilia/Caecilia-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'CaeciliaRoman';
+  src: url('fonts/Caecilia/Caecilia-Roman.ttf') format('truetype');
+}
+.actionGlow {
+  border: 1px solid #a51618;
+  -webkit-box-shadow: 0px 0px 5px #a51618;
+  -moz-box-shadow: 0px 0px 5px #a51618;
+  box-shadow: 0px 0px 5px #a51618;
+}
+body {
+  font-family: CaeciliaRoman, Helvetica, Arial, sans-serif;
+  cursor: default;
+  background-color: transparent;
+}
+body.sqsbg {
+  background: url(hg_blue_2048px.png);
+}
+.card-title h2 {
+  font-size: 1.4rem;
+}
+.bg-primary {
+  background-color: rgba(2, 64, 121, 0.75) !important;
+}
+h4.list-group-title {
+  color: #024079;
+  font-size: 18px;
+  margin-top: 8px;
+}
+.card {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.navbar {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.navbar .navbar-brand {
+  font-weight: bold;
+  color: rgba(165, 22, 24, 0.5);
+  font-size: 22px;
+  background-color: white;
+  padding: 12px;
+  border-radius: 26px;
+}
+.navbar .navbar-nav .nav-item {
+  background-color: white;
+  padding: 8px;
+  border-radius: 22px;
+}
+.navbar .navbar-nav .nav-link {
+  color: rgba(165, 22, 24, 0.5);
+}
+.list-group .list-group-item {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(2, 64, 121, 0.25);
+  font-size: 15px;
+  margin-top: 8px;
+  border-radius: 0px;
+}
+.list-group .list-group-item.title {
+  background-color: rgba(2, 64, 121, 0.75) !important;
+  border-color: rgba(2, 64, 121, 0.5);
+  cursor: pointer;
+  color: white;
+}
+.list-group a {
+  color: #024079;
+}
+.list-group a:hover {
+  border: 1px solid #a51618;
+  -webkit-box-shadow: 0px 0px 5px #a51618;
+  -moz-box-shadow: 0px 0px 5px #a51618;
+  box-shadow: 0px 0px 5px #a51618;
+}
+.table a {
+  color: rgba(165, 22, 24, 0.75);
+}
