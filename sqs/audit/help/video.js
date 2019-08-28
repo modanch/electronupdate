@@ -6,7 +6,7 @@ function startVideo() {
     //$("#backlink").attr("href", "index.html?lang=" + l);
 
     var c = url.searchParams.get("video");
-    $("#videoctrlsrc").attr("src", c);
-    //$('#videoctrl').trigger("play");
+    $("#videoctrl").attr("src", c);
+    $('#videoctrl').trigger("play");
 }
 
