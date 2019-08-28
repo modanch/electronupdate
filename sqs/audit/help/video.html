@@ -11,6 +11,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+    <link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
 </head>
 
 <body onload="startVideo()">
@@ -19,10 +22,16 @@
         <a class="list-group-item" id="backlink">zurück</a>
     </div> -->
 
-    <video id="videoctrl" class="embed-responsive embed-responsive-4by3" controls autoplay>
+    <!-- <video id="videoctrl" class="embed-responsive embed-responsive-4by3" controls autoplay>
         <source type="video/mp4">
         Your browser does not support the video tag.
+    </video> -->
+
+    <video id='videoctrl' class='video-js vjs-fluid' controls preload='auto' autoplay='true' data-setup='{}'>
+        <source id='videoctrlsrc' type='video/mp4'>
     </video>
+    
+    <script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
 
 </body>
 
