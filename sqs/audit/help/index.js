@@ -1,4 +1,4 @@
-$.urlParam = function (name) {
+﻿$.urlParam = function (name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results == null) {
         return null;
@@ -13,9 +13,9 @@ function startForm() {
 
     //Titel
     var text = "Verfügbare Hilfethemen:"
-    lang == "EN" ? text = "E Verfügbare Hilfethemen:" : "";
-    lang == "IT" ? text = "I Verfügbare Hilfethemen:" : "";
-    lang == "FR" ? text = "F Verfügbare Hilfethemen:" : "";
+    lang == "EN" ? text = "E Available Help Topics:" : "";
+    lang == "IT" ? text = "I Argomenti della Guida in linea:" : "";
+    lang == "FR" ? text = "F Rubriques d'aide disponibles:" : "";
     $("#title").text(text);
 
     //Doku
@@ -24,9 +24,9 @@ function startForm() {
     $("#dokulink").attr("href", link);
 
     var text = "Download Gesamtdokumentation";
-    lang == "EN" ? text = "E Gesamtdokumentation" : "";
-    lang == "IT" ? text = "I Gesamtdokumentation" : "";
-    lang == "FR" ? text = "F Gesamtdokumentation" : "";
+    lang == "EN" ? text = "E Complete documentation" : "";
+    lang == "IT" ? text = "I Documentazione completa" : "";
+    lang == "FR" ? text = "F Dossier complet" : "";
     $("#dokulink").text(text);
 
     //Video
@@ -38,10 +38,8 @@ function startForm() {
     var text = "Einführungsvideo";
     lang == "EN" ? text = "E Einführungsvideo" : "";
     lang == "IT" ? text = "I Einführungsvideo" : "";
-    lang == "FR" ? text = "F Einführungsvideo" : "";
+    lang == "FR" ? text = "F Vidéo introductive" : "";
     $("#videolink").text(text);
-
-
 
 }
 
