@@ -28,6 +28,9 @@ body {
 body.sqsbg {
   background: url(hg_blue_2048px.png);
 }
+body.standalone {
+  padding: 12px;
+}
 .card-title h2 {
   font-size: 1.4rem;
 }

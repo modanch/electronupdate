@@ -7,18 +7,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/sqs/audit/style/style.css">
-    <script type="text/javascript" src="video.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    
+        <script type="text/javascript" src="index.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 </head>
 
-<body onload="startVideo()">
+<body class="sqsbg standalone" onload="startForm()">
 
-    <video id="videoctrl" class="embed-responsive embed-responsive-4by3" controls autoplay>
-        <source type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <h4 id="title" class="list-group-title"></h4>
+    <canvas id="loginChart" width="400" height="400"></canvas>
 
 </body>
 
