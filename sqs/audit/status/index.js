@@ -3,7 +3,7 @@ function startForm() {
     $("#title").text("Status");
     var zr = 4
 
-    $.get("https://sqswebapiaxtestdev.modan.ch/breeze/auditboltbreeze/GetLogStats?Type=3&TypeParam=0&Zeitraum=" + zr + "&ExcludeUser='48'", function (data) {
+    $.get("https://sqswebapitest.modan.ch/breeze/auditboltbreeze/GetLogStats?Type=3&TypeParam=0&Zeitraum=" + zr + "&ExcludeUser='48'", function (data) {
 
         dataArray = [];
         if (zr == 4) {
