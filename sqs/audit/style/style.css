@@ -27,9 +27,19 @@ body {
 }
 body.sqsbg {
   background: url(hg_blue_2048px.png);
+  background-repeat: no-repeat;
 }
 body.standalone {
   padding: 12px;
+}
+body h1,
+body h2,
+body h3,
+body h4 {
+  color: #024079;
+}
+body .charHeader {
+  margin-top: 18px;
 }
 .card-title h2 {
   font-size: 1.4rem;
