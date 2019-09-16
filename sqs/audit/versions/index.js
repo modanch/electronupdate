@@ -45,10 +45,13 @@ function loadPage() {
             $("#btnRefresh").text("loading...");
         }
     }
-    var reqend = function () {
+    var reqend = function (all) {
         requests--;
+        if (all == true)
+            requests = 0;
+
         if (requests == 0) {
-            $("#btnRefresh").text("Refresh");
+            $("#btnRefresh").text("Daten aktualisieren");
         }
     }
 
@@ -229,5 +232,8 @@ function loadPage() {
     });
 
 
+    setTimeout(function() {
+        reqend(true);
+    }, 5000)
 
 }

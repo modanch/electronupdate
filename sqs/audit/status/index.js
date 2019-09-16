@@ -6,11 +6,11 @@ function startForm() {
 
         dataArray = [];
         if (zr == 4) {
-            start = moment();
+            start = moment().add(1, 'days');
             for (index = 0; index < 30; index++) {
-                var newd = start.add(-1, 'days');
                 elem = { day: moment(newd) };
                 dataArray.push(elem);
+                var newd = start.add(-1, 'days');
             }
         }
 
@@ -19,6 +19,7 @@ function startForm() {
         datasetsArbeit.push({ label: "Logins", data: [], borderWidth: 1, borderColor: 'rgba(0, 179, 21, 1)', backgroundColor: 'rgba(0, 179, 21, 0.06)' });
         datasetsArbeit.push({ label: "Statuswechsel", data: [], borderWidth: 1, borderColor: 'rgba(30, 85, 136, 1)', backgroundColor: 'rgba(30, 85, 136,0.06)' });
         datasetsArbeit.push({ label: "Fehler", data: [], borderWidth: 1, borderColor: 'rgba(245, 97, 81, 1)', backgroundColor: 'rgba(245, 97, 81, 0.06)' });
+        datasetsArbeit.push({ label: "Users", data: [], borderWidth: 1, borderColor: 'rgba(151, 161, 161)', backgroundColor: 'rgba(151, 161, 161, 0.06)' });
 
         var datasetsError = [];
         datasetsError.push({ label: "Server-Error", data: [], borderWidth: 1, borderColor: 'rgba(245, 97, 81, 1)', backgroundColor: 'rgba(245, 97, 81, 0.06)' });
@@ -32,31 +33,33 @@ function startForm() {
 
             labels.push(elem.day.format('DD.MM.'));
 
-            var vals = [0,0,0,0,0,0];
+            var vals = [0,0,0,0,0,0,0];
             data.forEach(function (state) {
                 var inserted = moment(state.Inserted);
                 if ((state.typeid == 1) && (inserted.isSame(elem.day, "day"))) {
                     vals[0] = state.cnt;
+                    vals[3] = state.users;
                 } else if ((state.typeid == 5) && (inserted.isSame(elem.day, "day"))) {
                     vals[1] = state.cnt;
                 } else if ((state.typeid == 3) && (inserted.isSame(elem.day, "day"))) {
                     vals[2] += state.cnt;
-                    vals[3] = state.cnt;
+                    vals[4] = state.cnt;
                 } else if ((state.typeid == 4) && (inserted.isSame(elem.day, "day"))) {
                     vals[2] += state.cnt;
-                    vals[4] = state.cnt;
+                    vals[5] = state.cnt;
                 } else if ((state.typeid == 6) && (inserted.isSame(elem.day, "day"))) {
                     vals[2] += state.cnt;
-                    vals[5] = state.cnt;
+                    vals[6] = state.cnt;
                 }
             })
 
             datasetsArbeit[0].data.push(vals[0]);
             datasetsArbeit[1].data.push(vals[1]);
             datasetsArbeit[2].data.push(vals[2]);
-            datasetsError[0].data.push(vals[3]);
-            datasetsError[1].data.push(vals[4]);
-            datasetsError[2].data.push(vals[5]);
+            datasetsArbeit[3].data.push(vals[3]);
+            datasetsError[0].data.push(vals[4]);
+            datasetsError[1].data.push(vals[5]);
+            datasetsError[2].data.push(vals[6]);
 
             vals.forEach(function (val) {
                 if (val > max)
@@ -66,6 +69,7 @@ function startForm() {
         };
 
         //max = (~~((max + 99) / 100) * 100);
+        //max: 200 --> auf Höhe beginAtZero
 
         var options = {
             responsive: true,
@@ -73,6 +77,8 @@ function startForm() {
             aspectRatio: 2,
             scales: {
                 yAxes: [{
+                    id: 'left',
+                    //type:'logarithmic',
                     ticks: {
                         beginAtZero: true
                         }

@@ -10,8 +10,8 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    
-        <script type="text/javascript" src="index.js"></script>
+
+    <script type="text/javascript" src="index.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
@@ -20,13 +20,26 @@
 
 </head>
 
-<body class="sqsbg standalone" onload="startForm()">
-    <h1>Status</h1>
-    <h4 class="charHeader">Allgemein</h4>
-    <canvas id="chartArbeit"></canvas>
-    <h4 class="charHeader">Fehler-Detaildaten</h4>
-    <canvas id="chartError"></canvas>
+<body class="sqsbg" onload="startForm()">
+    <nav class="navbar navbar-expand-lg">
 
+        <a class="navbar-brand" href="#">Status</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+        </div>
+
+    </nav>
+    <div class="container">
+        <h4 class="charHeader">Login / Arbeit</h4>
+        <canvas id="chartArbeit"></canvas>
+        <h4 class="charHeader">Fehlerdetaildaten</h4>
+        <canvas id="chartError"></canvas>
+    </div>
 </body>
 
 </html>
