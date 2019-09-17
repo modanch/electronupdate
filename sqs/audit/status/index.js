@@ -1,3 +1,14 @@
+function startPage() {
+    preparePage();
+    refresh();
+}
+
+
+function refresh() {
+    startForm();
+}
+
+
 function startForm() {
 
     var zr = 4

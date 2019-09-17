@@ -1,4 +1,9 @@
-function loadPage() {
+function startPage() {
+    preparePage();
+    refresh();
+}
+
+function refresh() {
 
     var requests = 0;
 
@@ -41,18 +46,18 @@ function loadPage() {
     var reqstart = function () {
         requests++;
 
-        if (requests > 0) {
-            $("#btnRefresh").text("loading...");
-        }
+        //if (requests > 0) {
+        //    $("#nav_refresh a").text("loading...");
+        //}
     }
     var reqend = function (all) {
         requests--;
         if (all == true)
             requests = 0;
 
-        if (requests == 0) {
-            $("#btnRefresh").text("Aktualisieren");
-        }
+        //if (requests == 0) {
+        //    $("#nav_refresh a").text("Aktualisieren");
+        //}
     }
 
     reqstart();

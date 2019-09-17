@@ -12,31 +12,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="/sqs/main.js"></script>
 </head>
 
-<body class="sqsbg" onload="loadPage()">
-
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand">Versionen</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Links</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/sqs/audit/status/">Status</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="loadPage()" id="btnRefresh"></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<body class="sqsbg" onload="startPage()">
 
     <div class="container">
         <div class="card">
@@ -45,8 +24,8 @@
                     <thead>
                         <tr>
                             <th>Versionen</th>
-                            <th class="text-right">Service</th>
                             <th class="text-right">App</th>
+                            <th class="text-right">Service</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,26 +35,26 @@
                         </tr>
                         <tr class="bg-light">
                             <td>Produktion<span class="small"> - Bolt</span></td>
-                            <td class="text-right"><a id="prodserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="prodserver"></span></td>
                             <td class="text-right"><a id="prodclient_label" class="small"></a>&nbsp;<span
                                     class="font-weight-bold" id="prodclient"></span></td>
+                            <td class="text-right"><a id="prodserver_label" class="small"></a>&nbsp;<span class="font-weight-bold"
+                                    id="prodserver"></span></td>
                         </tr>
                         <tr class="bg-light">
                             <td>Prerelease<span class="small"> - Bolt</span></td>
-                            <td class="text-right"><a id="preserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="preserver"></span></td>
                             <td class="text-right"><a id="preclient_label" class="small"></a>&nbsp;<span
                                     class="font-weight-bold" id="preclient"></span></td>
+                            <td class="text-right"><a id="preserver_label" class="small"></a>&nbsp;<span class="font-weight-bold"
+                                    id="preserver"></span></td>
                         </tr>
                         <tr class="bg-white">
                             <td>Test<span class="small"> - Bolt - <a href="https://sqswebapitest.modan.ch/hangfire"
                                         target="_blank">Hangfire
                                     </a></span></td>
-                            <td class="text-right"><a id="testserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="testserver"></span></td>
                             <td class="text-right"><a id="testclient_label" class="small"></a>&nbsp;<span
                                     class="font-weight-bold" id="testclient"></span></td>
+                            <td class="text-right"><a id="testserver_label" class="small"></a>&nbsp;<span class="font-weight-bold"
+                                    id="testserver"></span></td>
                         </tr>
                         <!-- Web AX-Test -->
                         <tr class="bg-primary">
@@ -84,18 +63,18 @@
                         </tr>
                         <tr class="bg-white">
                             <td>AX-Test<span class="small"> - Bolt</span></td>
-                            <td class="text-right"><a id="axtestserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="axtestserver"></span></td>
                             <td class="text-right"><a id="axtestclient_label" class="small"></a>&nbsp;<span
                                     class="font-weight-bold" id="axtestclient"></span></td>
+                            <td class="text-right"><a id="axtestserver_label" class="small"></a>&nbsp;<span class="font-weight-bold"
+                                    id="axtestserver"></span></td>
                         </tr>
                         <tr class="bg-white">
                             <td>AX-Test-Dev<span class="small"> - Bolt - <a target="_blank"
                                         href="https://sqswebapiaxtestdev.modan.ch/hangfire">Hangfire
                                     </a></span></td>
-                            <td class="text-right"><a id="axtestdevserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="axtestdevserver"></span></td>
                             <td class="text-right small">App zur Entwicklungszeit</td>
+                            <td class="text-right"><a id="axtestdevserver_label" class="small"></a>&nbsp;<span class="font-weight-bold"
+                                    id="axtestdevserver"></span></td>
                         </tr>
                         <!-- Windows -->
                         <tr class="bg-primary">
@@ -103,22 +82,22 @@
                         </tr>
                         <tr class="bg-light">
                             <td>Produktion</td>
-                            <td class="text-right small">Produktion-Service</td>
                             <td class="text-right"><a class="small"
                                     href="http://update.modan.ch/sqs/audit/win64/SQSAuditAppSetup64.exe">Setup-Package
                                 </a><span class="text-right font-weight-bold" id="windowclient"></span></td>
+                            <td class="text-right small">Produktion-Service</td>
                         </tr>
                         <tr class="bg-white">
                             <td>Test</td>
-                            <td class="text-right small">Test-Service</td>
                             <td class="text-right"><a class="small"
                                     href="http://update.modan.ch/sqs/audit/test/win64/SQSAuditAppSetup64.exe">Test-Setup-Package
                                 </a><span class="text-right font-weight-bold" id="windowtestclient"></span></td>
+                            <td class="text-right small">Test-Service</td>
                         </tr>
                         <tr class="bg-white">
                             <td>Dev</td>
-                            <td class="text-right small">Dev-Service</td>
                             <td class="text-right small">App zur Entwicklungszeit</td>
+                            <td class="text-right small">Dev-Service</td>
                         </tr>
                     </tbody>
                 </table>
