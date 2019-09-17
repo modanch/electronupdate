@@ -1,15 +1,19 @@
+var chart1, chart2, chart3;
+
 function startPage() {
     preparePage();
     refresh();
 }
 
-
 function refresh() {
     startForm();
 }
 
+function resize1(max) {
+    startForm(max)
+}
 
-function startForm() {
+function startForm(max1) {
 
     var zr = 4
 
@@ -27,22 +31,24 @@ function startForm() {
                 }
             }
 
+            var lineTen = 0.2;
+
             var labels = [];
             var datasetsArbeit = [];
-            datasetsArbeit.push({ label: "Logins", data: [], borderWidth: 1, borderColor: 'rgba(0, 179, 21, 1)', backgroundColor: 'rgba(0, 179, 21, 0.06)' });
-            datasetsArbeit.push({ label: "Statuswechsel", data: [], borderWidth: 1, borderColor: 'rgba(30, 85, 136, 1)', backgroundColor: 'rgba(30, 85, 136,0.06)' });
-            datasetsArbeit.push({ label: "Fehler", data: [], borderWidth: 1, borderColor: 'rgba(245, 97, 81, 1)', backgroundColor: 'rgba(245, 97, 81, 0.06)' });
-            datasetsArbeit.push({ label: "Users", data: [], borderWidth: 1, borderColor: 'rgba(151, 161, 161)', backgroundColor: 'rgba(151, 161, 161, 0.06)' });
+            datasetsArbeit.push({ label: "Logins", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(0, 179, 21, 1)', backgroundColor: 'rgba(0, 179, 21, 0.06)' });
+            datasetsArbeit.push({ label: "Statuswechsel", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(30, 85, 136, 1)', backgroundColor: 'rgba(30, 85, 136,0.06)' });
+            datasetsArbeit.push({ label: "Fehler", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(245, 97, 81, 1)', backgroundColor: 'rgba(245, 97, 81, 0.06)' });
+            datasetsArbeit.push({ label: "Users", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(151, 161, 161)', backgroundColor: 'rgba(151, 161, 161, 0.06)' });
 
             var datasetsError = [];
-            datasetsError.push({ label: "Server-Error", data: [], borderWidth: 1, borderColor: 'rgba(245, 97, 81, 1)', backgroundColor: 'rgba(245, 97, 81, 0.06)' });
-            datasetsError.push({ label: "Client-Handled-Error", data: [], borderWidth: 1, borderColor: 'rgba(247, 153, 12, 1)', backgroundColor: 'rgba(247, 153, 12, 0.06)' });
-            datasetsError.push({ label: "Client-Unhandled-Error", data: [], borderWidth: 1, borderColor: 'rgba(247, 12, 157, 1)', backgroundColor: 'rgba(247, 12, 157,0.06)' });
+            datasetsError.push({ label: "Server-Error", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(245, 97, 81, 1)', backgroundColor: 'rgba(245, 97, 81, 0.06)' });
+            datasetsError.push({ label: "Client-Handled-Error", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(247, 153, 12, 1)', backgroundColor: 'rgba(247, 153, 12, 0.06)' });
+            datasetsError.push({ label: "Client-Unhandled-Error", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(247, 12, 157, 1)', backgroundColor: 'rgba(247, 12, 157,0.06)' });
 
             var datasetsAxImport = [];
-            datasetsAxImport.push({ label: "Imports", data: [], borderWidth: 1, borderColor: 'rgba(30, 85, 136, 1)', backgroundColor: 'rgba(30, 85, 136,0.06)' });
-            datasetsAxImport.push({ label: "Laufzeit", data: [], borderWidth: 1, borderColor: 'rgba(0, 179, 21, 1)', backgroundColor: 'rgba(0, 179, 21, 0.06)' });
-            datasetsAxImport.push({ label: "Errors", data: [], borderWidth: 1, borderColor: 'rgba(245, 97, 81, 1)', backgroundColor: 'rgba(245, 97, 81, 0.06)' });
+            datasetsAxImport.push({ label: "Imports", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(30, 85, 136, 1)', backgroundColor: 'rgba(30, 85, 136,0.06)' });
+            datasetsAxImport.push({ label: "Laufzeit", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(0, 179, 21, 1)', backgroundColor: 'rgba(0, 179, 21, 0.06)' });
+            datasetsAxImport.push({ label: "Errors", data: [], borderWidth: 1, lineTension: lineTen, borderColor: 'rgba(245, 97, 81, 1)', backgroundColor: 'rgba(245, 97, 81, 0.06)' });
 
             var max = 0;
 
@@ -100,9 +106,6 @@ function startForm() {
 
             };
 
-            //max = (~~((max + 99) / 100) * 100);
-            //max: 200 --> auf Höhe beginAtZero
-
             var options = {
                 responsive: true,
                 maintainAspectRatio: true,
@@ -119,17 +122,27 @@ function startForm() {
                 }
             }
 
+            var options1 = {};
+            $.extend(true, options1, options);
+            if (max1 > 0)
+                options1.scales.yAxes[0].ticks.max = max1;
+
+            if (chart1)
+                chart1.destroy();
             var loginChartCtx = document.getElementById('chartArbeit').getContext('2d');
-            new Chart(loginChartCtx, {
+            chart1 = new Chart(loginChartCtx, {
                 type: 'line',
-                options: options,
+                options: options1,
                 data: {
                     labels: labels,
                     datasets: datasetsArbeit
                 }
             });
+
+            if (chart2)
+                chart2.destroy();
             var loginChartCtx = document.getElementById('chartError').getContext('2d');
-            new Chart(loginChartCtx, {
+            chart2 = new Chart(loginChartCtx, {
                 type: 'line',
                 options: options,
                 data: {
@@ -137,8 +150,10 @@ function startForm() {
                     datasets: datasetsError
                 }
             });
+            if (chart3)
+                chart3.destroy();
             var importChartCtx = document.getElementById('chartImport').getContext('2d');
-            new Chart(importChartCtx, {
+            chart3 = new Chart(importChartCtx, {
                 type: 'line',
                 options: options,
                 data: {

@@ -36,6 +36,18 @@
 	.box-shadow-m(0px, 0px, 5px, @red);
 }
 
+.btn-secondary, 
+.show > .btn-secondary.dropdown-toggle {
+	background-color: @blue75;
+	border-color: @blue;
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled):hover {
+		background-color: @blue50;
+		border-color: @blue75;
+	}
+}
+
 body {
 	font-family: CaeciliaRoman, Helvetica, Arial, sans-serif;
 	cursor: default;
@@ -56,7 +68,7 @@ body {
 		color: @blue;
 	}
 
-	.charHeader {
+	.chartHeader {
 		margin-top: 18px;
 	}
 }
