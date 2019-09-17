@@ -1,20 +1,19 @@
 @font-face {
-  font-family: 'CaeciliaBold';
-  src: url('fonts/Caecilia/Caecilia-Bold.ttf') format('truetype');
+	font-family: 'CaeciliaBold';
+	src: url('fonts/Caecilia/Caecilia-Bold.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'CaeciliaBoldItalic';
-  src: url('fonts/Caecilia/Caecilia-BoldItalic.ttf') format('truetype');
+	font-family: 'CaeciliaBoldItalic';
+	src: url('fonts/Caecilia/Caecilia-BoldItalic.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'CaeciliaLight';
-  src: url('fonts/Caecilia/Caecilia-Light.ttf') format('truetype');
+	font-family: 'CaeciliaLight';
+	src: url('fonts/Caecilia/Caecilia-Light.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'CaeciliaRoman';
-  src: url('fonts/Caecilia/Caecilia-Roman.ttf') format('truetype');
+	font-family: 'CaeciliaRoman';
+	src: url('fonts/Caecilia/Caecilia-Roman.ttf') format('truetype');
 }
-
 
 @red: #a51618;
 @red50: fade(@red, 50%);
@@ -50,7 +49,10 @@ body {
 		padding: 12px;
 	}
 
-	h1,h2,h3,h4 {
+	h1,
+	h2,
+	h3,
+	h4 {
 		color: @blue;
 	}
 
@@ -58,7 +60,6 @@ body {
 		margin-top: 18px;
 	}
 }
-
 
 .card-title {
 	h2 {
@@ -81,54 +82,62 @@ h4.list-group-title {
 }
 
 .navbar {
-	background-color: rgba(255, 255, 255, 0.6);
+	background-color: rgba(255, 255, 255, 0.9);
+
+	.navbar-toggler {
+		background-color: white;
+		color: @red50;
+	}
 
 	.navbar-brand {
 		font-weight: bold;
-		color: @red50;
+		color: @red50 !important;
 		font-size: 22px;
 		background-color: white;
-		padding: 12px;
+		padding: 12px 18px;
 		border-radius: 26px;
 	}
 	.navbar-nav {
 		.nav-item {
-			background-color: white;
-			padding: 8px;
-			border-radius: 22px;
-		}
-		.nav-link {
-			color: @red50;
+			// background-color: rgba(255, 255, 255, 1);
+			.nav-link {
+				color: @red75;
+			}
 		}
 	}
 }
 
-.list-group {
-	.list-group-item {
-		background-color: rgba(255, 255, 255, 0.6);
-		border: 1px solid @blue25;
-		font-size: 15px;
+.container {
 
-		margin-top: 8px;
-		border-radius: 0px;
+	margin-top: 20px;
 
-		&.title {
-			background-color: @blue75 !important;
-			border-color: @blue50;
-			cursor: pointer;
-			color: white;
+	.list-group {
+		.list-group-item {
+			background-color: rgba(255, 255, 255, 0.6);
+			border: 1px solid @blue25;
+			font-size: 15px;
+
+			margin-top: 8px;
+			border-radius: 0px;
+
+			&.title {
+				background-color: @blue75 !important;
+				border-color: @blue50;
+				cursor: pointer;
+				color: white;
+			}
+		}
+		a {
+			color: @blue;
+			&:hover {
+				.actionGlow;
+			}
 		}
 	}
-	a {
-		color: @blue;
-		&:hover {
-			.actionGlow;
-		}
-	}
-}
 
-.table {
-	a {
-		color: @red75;
+	.table {
+		a {
+			color: @red75;
+		}
 	}
 }

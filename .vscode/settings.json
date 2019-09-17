@@ -1,6 +1,6 @@
 {
 "liveServer.settings.root": "",
-"liveServer.settings.ignoreFiles": [],
+"liveServer.settings.ignoreFiles": ["**/*.less"],
 "liveServer.settings.AdvanceCustomBrowserCmdLine": "cmd",
 "liveServer.settings.port": 5510,
 }

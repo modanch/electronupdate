@@ -56,46 +56,48 @@ h4.list-group-title {
   background-color: rgba(255, 255, 255, 0.6);
 }
 .navbar {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.navbar .navbar-toggler {
+  background-color: white;
+  color: rgba(165, 22, 24, 0.5);
 }
 .navbar .navbar-brand {
   font-weight: bold;
-  color: rgba(165, 22, 24, 0.5);
+  color: rgba(165, 22, 24, 0.5) !important;
   font-size: 22px;
   background-color: white;
-  padding: 12px;
+  padding: 12px 18px;
   border-radius: 26px;
 }
-.navbar .navbar-nav .nav-item {
-  background-color: white;
-  padding: 8px;
-  border-radius: 22px;
+.navbar .navbar-nav .nav-item .nav-link {
+  color: rgba(165, 22, 24, 0.75);
 }
-.navbar .navbar-nav .nav-link {
-  color: rgba(165, 22, 24, 0.5);
+.container {
+  margin-top: 20px;
 }
-.list-group .list-group-item {
+.container .list-group .list-group-item {
   background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(2, 64, 121, 0.25);
   font-size: 15px;
   margin-top: 8px;
   border-radius: 0px;
 }
-.list-group .list-group-item.title {
+.container .list-group .list-group-item.title {
   background-color: rgba(2, 64, 121, 0.75) !important;
   border-color: rgba(2, 64, 121, 0.5);
   cursor: pointer;
   color: white;
 }
-.list-group a {
+.container .list-group a {
   color: #024079;
 }
-.list-group a:hover {
+.container .list-group a:hover {
   border: 1px solid #a51618;
   -webkit-box-shadow: 0px 0px 5px #a51618;
   -moz-box-shadow: 0px 0px 5px #a51618;
   box-shadow: 0px 0px 5px #a51618;
 }
-.table a {
+.container .table a {
   color: rgba(165, 22, 24, 0.75);
 }

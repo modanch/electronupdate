@@ -51,7 +51,7 @@ function loadPage() {
             requests = 0;
 
         if (requests == 0) {
-            $("#btnRefresh").text("Daten aktualisieren");
+            $("#btnRefresh").text("Aktualisieren");
         }
     }
 
