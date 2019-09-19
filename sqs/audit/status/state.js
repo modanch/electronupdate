@@ -5,7 +5,6 @@ function startForm() {
 
     $.get("https://sqswebapitest.modan.ch/breeze/auditboltbreeze/GetLogStats?Type=4&TypeParam=0&Zeitraum=" + zr + "&ExcludeUser=", function (dataAX) {
 
-
         var vals = [0,0,0];
         today = moment();
         dataAX.forEach(function (state) {
@@ -18,7 +17,18 @@ function startForm() {
             }
         })
 
-        $("#stateImport").text(vals[0]);
+        if (vals[0] < 1) {
+            $("#stateImport").text("No Import");
+            return;
+        }
+        
+        if (vals[0] < 3) {
+            $("#stateImport").text("Import to fast ");
+            return;
+        }
+
+        $("#stateImport").text("Import OK");
+
 
     });
 
