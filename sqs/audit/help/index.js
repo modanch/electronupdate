@@ -24,9 +24,9 @@ function startForm() {
     $("#dokulink").attr("href", link);
 
     var text = "Download Gesamtdokumentation";
-    lang == "EN" ? text = "E Complete documentation" : "";
-    lang == "IT" ? text = "I Documentazione completa" : "";
-    lang == "FR" ? text = "F Dossier complet" : "";
+    lang == "EN" ? text = "Complete documentation" : "";
+    lang == "IT" ? text = "Documentazione completa" : "";
+    lang == "FR" ? text = "Dossier complet" : "";
     $("#dokulink").text(text);
 
     //Video
@@ -36,10 +36,18 @@ function startForm() {
     $("#videolink").attr("href", link);
 
     var text = "Einführungsvideo";
-    lang == "EN" ? text = "E Einführungsvideo" : "";
-    lang == "IT" ? text = "I Einführungsvideo" : "";
-    lang == "FR" ? text = "F Vidéo introductive" : "";
+    lang == "EN" ? text = "Introductory video" : "";
+    lang == "IT" ? text = "Video introduttivo" : "";
+    lang == "FR" ? text = "Vidéo introductive" : "";
     $("#videolink").text(text);
+
+    $("#historylink").attr("href", "https://modansoftware.atlassian.net/wiki/spaces/PUB/pages/1076199436/SQS-App+Versionshistory");
+    var text = "Versionshistory";
+    lang == "EN" ? text = "Version history (german)" : "";
+    lang == "IT" ? text = "Storia delle versioni (tedesco)" : "";
+    lang == "FR" ? text = "Historique des versions (allemand)" : "";
+    $("#historylink").text(text);
+
 
 }
 
