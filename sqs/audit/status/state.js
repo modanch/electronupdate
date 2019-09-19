@@ -27,7 +27,7 @@ function startForm() {
             return;
         }
 
-        $("#stateImport").text("Import-OK");
+        $("#stateImport").text("Import OK");
 
 
     });
