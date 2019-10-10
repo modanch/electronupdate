@@ -19,7 +19,8 @@ function startForm() {
     $("#title").text(text);
 
     //Doku
-    var link = "https://hcp.sqs.ch/fss/public/link/public/stream/read/Anleitung.pdf?linkToken=6WUcVHnlHF37ZRxU&itemName=Anleitung.pdf";
+    //var link = "https://hcp.sqs.ch/u/ha79RhUu_VaXrv1G/Anleitung.pdf?l";
+    var link = "https://modansoftware.atlassian.net/wiki/download/attachments/1347878939/Anleitung.pdf?api=v2";
     link = link + "&lang=" + lang
     $("#dokulink").attr("href", link);
 
@@ -30,7 +31,8 @@ function startForm() {
     $("#dokulink").text(text);
 
     //Video
-    var video = "https://hcp.sqs.ch/fss/public/link/public/stream/read/Starseite.mp4?linkToken=wDsaBVC7Gg_SOxoF&itemName=Starseite.mp4"
+    //var video = "https://hcp.sqs.ch/fss/public/link/public/stream/read/Starseite.mp4?linkToken=wDsaBVC7Gg_SOxoF&itemName=Starseite.mp4"
+    var video = "https://modansoftware.atlassian.net/wiki/download/attachments/1347878939/1%20-%20Startseite.mp4?api=v2"
     var link = "video.html?video=" + encodeURIComponent(video);
     link = link + "&lang=" + lang
     $("#videolink").attr("href", link);
