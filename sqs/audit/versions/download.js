@@ -32,13 +32,13 @@ function loadPage() {
         requests++;
 
         if (requests > 0) {
-            $("#btnRefresh").text("loading...");
+            $("#nav_refresh").text("loading...");
         }
     }
     var reqend = function () {
         requests--;
         if (requests == 0) {
-            $("#btnRefresh").text("Refresh");
+            $("#nav_refresh").text("Refresh");
         }
     }
 
