@@ -17,9 +17,13 @@ function startForm(max1) {
 
     var zr = 4
 
-    $.get("https://sqswebapitest.modan.ch/breeze/auditboltbreeze/GetLogStats?Type=3&TypeParam=0&Zeitraum=" + zr + "&ExcludeUser='48'", function (data) {
+    var service = "";
+    //service = "sqswebapiaxtestdev";
+    service = "sqswebapitest";
 
-        $.get("https://sqswebapitest.modan.ch/breeze/auditboltbreeze/GetLogStats?Type=4&TypeParam=0&Zeitraum=" + zr + "&ExcludeUser=", function (dataAX) {
+    $.get("https://" + service + ".modan.ch/breeze/auditboltbreeze/GetLogStats?Type=3&TypeParam=0&Zeitraum=" + zr + "&ExcludeUser='48'", function (data) {
+
+        $.get("https://" + service + ".modan.ch/breeze/auditboltbreeze/GetLogStats?Type=4&TypeParam=0&Zeitraum=" + zr + "&ExcludeUser=", function (dataAX) {
 
             dataArray = [];
             if (zr == 4) {
