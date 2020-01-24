@@ -3,7 +3,7 @@ function preparePage(noRefresh) {
     $.get("/sqs/nav.html", function (result) {
         $("body").prepend(result);
 
-        var href = document.location.href;
+        //var href = document.location.href;
         // if (href.indexOf("/status") > 0) 
         //     $("#nv_status").hide();
         // if (href.indexOf("/versions") > 0)
