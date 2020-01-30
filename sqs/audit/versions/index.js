@@ -170,9 +170,9 @@ function refresh() {
     //webapps
     reqstart();
     makeWait("#prodclient");
-    makeLink("#prodclient_label", "sqsauditapp.modan.ch");
+    makeLink("#prodclient_label", "auditapp.sqs.ch");
     $.ajax({
-        url: "https://sqsauditapp.modan.ch/index.html",
+        url: "https://auditapp.sqs.ch/index.html",
         crossDomain: true
     }).done(function (response) {
         setTimeout(function () {
