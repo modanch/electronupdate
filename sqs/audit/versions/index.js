@@ -122,6 +122,22 @@ function refresh() {
 
     //electron
     reqstart();
+    makeWait("#windowaxtestclient");
+    $.ajax({
+        url: "http://update.modan.ch/sqs/audit/axtest/win64/RELEASES?_=" + new Date().getTime()
+    }).done(function (response) {
+        setTimeout(function () {
+            var idx = response.indexOf(" sqsauditappaxtest-");
+            var str = response.substr(idx + 19, 22);
+            var idx2 = str.indexOf("-");
+            str = str.substr(0, idx2);
+
+            $("#windowaxtestclient").text(str);
+            reqend();
+        }, getTime());
+    });
+
+    reqstart();
     makeWait("#windowtestclient");
     $.ajax({
         url: "http://update.modan.ch/sqs/audit/test/win64/RELEASES?_=" + new Date().getTime()
