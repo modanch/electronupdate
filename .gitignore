@@ -1,2 +1,5 @@
 node_modules
 npm-debug.log*
+/sqs/audit/win64
+/sqs/audit/test/win64
+/sqs/audit/axtest/win64
