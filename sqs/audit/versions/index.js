@@ -170,7 +170,7 @@ function refresh() {
     });
 
     reqstart();
-    makeWait("#windowaxtestclient");
+    makeWait("#windowpreclient");
     $.ajax({
         url: "http://update.modan.ch/sqs/audit/pre/win64/RELEASES?_=" + new Date().getTime()
     }).done(function (response) {
