@@ -169,6 +169,22 @@ function refresh() {
         }, getTime());
     });
 
+    reqstart();
+    makeWait("#windowaxtestclient");
+    $.ajax({
+        url: "http://update.modan.ch/sqs/audit/pre/win64/RELEASES?_=" + new Date().getTime()
+    }).done(function (response) {
+        setTimeout(function () {
+            var idx = response.indexOf(" sqsauditapppre-");
+            var str = response.substr(idx + 16, 23);
+            var idx2 = str.indexOf("-");
+            str = str.substr(0, idx2);
+
+            $("#windowpreclient").text(str);
+            reqend();
+        }, getTime());
+    });
+
     var getVnr = function (response) {
         var idx = response.indexOf(" version=");
         var str = response.substr(idx + 10, 20);
