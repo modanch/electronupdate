@@ -45,6 +45,8 @@ body.sqsbg {
 }
 body.standalone {
   padding: 12px;
+  background: url(hg_blue_2048px.png);
+  background-repeat: no-repeat;
 }
 body h1,
 body h2,

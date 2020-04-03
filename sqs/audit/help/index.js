@@ -11,6 +11,11 @@ function startForm() {
     if (!lang)
         lang = "DE"
 
+    var standalone = $.urlParam('standalone');
+    if (standalone == 1) {
+        $("body").addClass("standalone");
+    }
+
     //Titel
     var text = "Verfügbare Hilfethemen:"
     lang == "EN" ? text = "E Available Help Topics:" : "";
