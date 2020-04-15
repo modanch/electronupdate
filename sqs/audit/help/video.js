@@ -2,10 +2,7 @@ function startVideo() {
 
     var url = new URL(window.location.href);
 
-    //var l = url.searchParams.get("lang");
-    //$("#backlink").attr("href", "index.html?lang=" + l);
-
-    var standalone = $.urlParam('standalone');
+    var standalone = url.searchParams.get('standalone');
     if (standalone == 1) {
         $("body").addClass("standalone");
     }

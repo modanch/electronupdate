@@ -1,17 +1,14 @@
-﻿$.urlParam = function (name) {
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    if (results == null) {
-        return null;
-    }
-    return decodeURI(results[1]) || 0;
-}
-
+﻿
 function startForm() {
-    var lang = $.urlParam('lang');
+
+
+    var url = new URL(window.location.href);
+
+    var lang = url.searchParams.get('lang');
     if (!lang)
         lang = "DE"
 
-    var standalone = $.urlParam('standalone');
+    var standalone = url.searchParams.get('standalone');
     if (standalone == 1) {
         $("body").addClass("standalone");
     }
