@@ -37,6 +37,9 @@ function startForm() {
     var video = "https://modansoftware.atlassian.net/wiki/download/attachments/1347878939/1%20-%20Startseite.mp4?api=v2"
     var link = "video.html?video=" + encodeURIComponent(video);
     link = link + "&lang=" + lang
+    if (standalone == 1) {
+        link = link + "&standalone=1"
+    }
     $("#videolink").attr("href", link);
 
     var text = "Einführungsvideo";
@@ -45,6 +48,7 @@ function startForm() {
     lang == "FR" ? text = "Vidéo introductive" : "";
     $("#videolink").text(text);
 
+    //History
     $("#historylink").attr("href", "https://modansoftware.atlassian.net/wiki/spaces/PUB/pages/1076199436/SQS-App+Versionshistory");
     var text = "Versionshistory";
     lang == "EN" ? text = "Version history (german)" : "";
