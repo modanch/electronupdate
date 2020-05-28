@@ -120,6 +120,32 @@ function refresh() {
         }, getTime());
     });
 
+
+    reqstart();
+    makeLink("#devserver_label", "sqswebapidev.modan.ch", true, true);
+    makeWait("#devserver");
+    $.ajax({
+        url: "https://sqswebapidev.modan.ch/breeze/auditboltbreeze/getserverinfo"
+    }).done(function (response) {
+        setTimeout(function () {
+            $("#devserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
+    });
+
+    reqstart();
+    makeLink("#devdevserver_label", "sqswebapidev_dev.modan.ch", true, true);
+    makeWait("#devdevserver");
+    $.ajax({
+        url: "https://sqswebapidev_dev.modan.ch/breeze/auditboltbreeze/getserverinfo"
+    }).done(function (response) {
+        setTimeout(function () {
+            $("#devdevserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
+    });
+
+
     //electron
     reqstart();
     makeWait("#windowaxtestclient");
@@ -184,6 +210,23 @@ function refresh() {
             reqend();
         }, getTime());
     });
+
+    reqstart();
+    makeWait("#windowdevclient");
+    $.ajax({
+        url: "http://update.modan.ch/sqs/audit/dev/win64/RELEASES?_=" + new Date().getTime()
+    }).done(function (response) {
+        setTimeout(function () {
+            var idx = response.indexOf(" sqsauditappdev-");
+            var str = response.substr(idx + 16, 23);
+            var idx2 = str.indexOf("-");
+            str = str.substr(0, idx2);
+
+            $("#windowpreclient").text(str);
+            reqend();
+        }, getTime());
+    });
+
 
     var getVnr = function (response) {
         var idx = response.indexOf(" version=");
@@ -265,6 +308,23 @@ function refresh() {
         }, getTime());
     }).fail(function () {
         generateError("#axtestclient");
+        reqend();
+    });
+
+    reqstart();
+    makeWait("#devclient");
+    makeLink("#devclient_label", "sqsdev.modan.ch");
+    $.ajax({
+        url: "https://sqsdev.modan.ch/index.html",
+        crossDomain: true
+    }).done(function (response) {
+        setTimeout(function () {
+            var str = getVnr(response);
+            $("#devclient").text(vstrwp(str));
+            reqend();
+        }, getTime());
+    }).fail(function () {
+        generateError("#devclient");
         reqend();
     });
 
