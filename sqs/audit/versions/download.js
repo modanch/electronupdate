@@ -20,7 +20,7 @@ function loadPage() {
         $(name).css("color", "#212529");
 
         if (isService) {
-            $(name).attr("href", "https://" + inp + "/breeze/auditbreeze/getserverinfo");
+            $(name).attr("href", "https://" + inp + "/breeze/auditboltbreeze/getserverinfo");
         } else {
             $(name).attr("href", "https://" + inp + "");
         }

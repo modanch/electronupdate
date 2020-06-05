@@ -222,7 +222,7 @@ function refresh() {
             var idx2 = str.indexOf("-");
             str = str.substr(0, idx2);
 
-            $("#windowpreclient").text(str);
+            $("#windowdevclient").text(str);
             reqend();
         }, getTime());
     });

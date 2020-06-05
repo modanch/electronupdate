@@ -36,65 +36,50 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <!-- Web AX -->
                         <tr class="bg-primary">
-                            <td colspan="4" class="text-light bold">Web<span class="small"> - Prod-DB</span></td>
+                            <td colspan="4" class="text-light bold">Prod-DB<span class="small"> (Sync mit Navision AX-Prod)</span></td>
                         </tr>
                         <tr class="bg-light">
                             <td>Produktion</td>
-                            <td class="text-right"><a id="prodclient_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="prodclient"></span></td>
-                            <td class="text-right"><a class="small"
-                                    href="http://update.modan.ch/sqs/audit/win64/SQSAuditAppSetup64.exe">Setup-Package
-                                </a><span class="text-right font-weight-bold" id="windowclient"></span></td>
-                            <td class="text-right"><a id="prodserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="prodserver"></span></td>
+                            <td class="text-right"><a id="prodclient_label" class="small"></a>&nbsp;<span class="font-weight-bold" id="prodclient"></span></td>
+                            <td class="text-right"><a class="small" href="http://update.modan.ch/sqs/audit/win64/SQSAuditAppSetup64.exe">Setup-Package</a><span class="text-right font-weight-bold" id="windowclient"></span></td>
+                            <td class="text-right"><a id="prodserver_label" class="small"></a>&nbsp;<span class="font-weight-bold" id="prodserver"></span></td>
                         </tr>
                         <tr class="bg-light">
-                            <td>Prerelease</td>
-                            <td class="text-right"><a id="preclient_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="preclient"></span></td>
-                            <td class="text-right"><a class="small"
-                                    href="http://update.modan.ch/sqs/audit/pre/win64/SQSAuditAppPreSetup64.exe">Setup-Package
-                                </a><span class="text-right font-weight-bold" id="windowpreclient"></span></td>
-                            <td class="text-right"><a id="preserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="preserver"></span></td>
+                            <td>Prerelease<span class="small">&nbsp;-&nbsp;<a href="https://sqswebapipre.modan.ch/hangfire" target="_blank">Hangfire</a></span></td>
+                            <td class="text-right"><a id="preclient_label" class="small"></a>&nbsp;<span class="font-weight-bold" id="preclient"></span></td>
+                            <td class="text-right"><a class="small" href="http://update.modan.ch/sqs/audit/pre/win64/SQSAuditAppPreSetup64.exe">Setup-Package</a><span class="text-right font-weight-bold" id="windowpreclient"></span></td>
+                            <td class="text-right"><a id="preserver_label" class="small"></a>&nbsp;<span class="font-weight-bold" id="preserver"></span></td>
                         </tr>
-                        <tr class="bg-white">
-                            <td>Test<span class="small">&nbsp;-&nbsp;<a href="https://sqswebapitest.modan.ch/hangfire"
-                                 target="_blank">Hangfire
-                                    </a></span></td>
-                            <td class="text-right"><a id="testclient_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="testclient"></span></td>
-                            <td class="text-right"><a class="small"
-                                    href="http://update.modan.ch/sqs/audit/test/win64/SQSAuditAppTestSetup64.exe">Setup-Package
-                                </a><span class="text-right font-weight-bold" id="windowtestclient"></span></td>
-                            <td class="text-right"><a id="testserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="testserver"></span></td>
-                        </tr>
+
                         <!-- Web AX-Test -->
                         <tr class="bg-primary">
-                            <td colspan="4" class="text-light bold">Web<span class="small"> - Test-DB</span>
-                            </td>
+                            <td colspan="4" class="text-light bold">Test-DB<span class="small"> (ueberschreibbar, 1:1 Kopie von Prod)</span></td>
+                        </tr>
+			<tr class="bg-white">
+                            <td>Test</td>
+                            <td class="text-right"><a id="testclient_label" class="small"></a>&nbsp;<span class="font-weight-bold" id="testclient"></span></td>
+                            <td class="text-right"><a class="small" href="http://update.modan.ch/sqs/audit/test/win64/SQSAuditAppTestSetup64.exe">Setup-Package</a><span class="text-right font-weight-bold" id="windowtestclient"></span></td>
+                            <td class="text-right"><a id="testserver_label" class="small"></a>&nbsp;<span class="font-weight-bold" id="testserver"></span></td>
+                        </tr>           
+
+			<!-- Web AX-Dev -->
+                        <tr class="bg-primary">
+                            <td colspan="4" class="text-light bold">Dev-DB<span class="small"> (kontinuierlich, individuell anpassbar, Sync mit Navision AX-Test)</span></td>
                         </tr>
                         <tr class="bg-white">
-                            <td>AX-Test</td>
-                            <td class="text-right"><a id="axtestclient_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="axtestclient"></span></td>
-                            <td class="text-right"><a class="small"
-                                    href="http://update.modan.ch/sqs/audit/axtest/win64/SQSAuditAppAXTestSetup64.exe">Setup-Package
-                                </a><span class="text-right font-weight-bold" id="windowaxtestclient"></span></td>
-                            <td class="text-right"><a id="axtestserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="axtestserver"></span></td>
+                            <td>Dev</td>
+                            <td class="text-right"><a id="devclient_label" class="small"></a>&nbsp;<span class="font-weight-bold" id="devclient"></span></td>
+                            <td class="text-right"><a class="small" href="http://update.modan.ch/sqs/audit/dev/win64/SQSAuditAppDevSetup64.exe">Setup-Package</a><span class="text-right font-weight-bold" id="windowdevclient"></span></td>
+                            <td class="text-right"><a id="devserver_label" class="small"></a>&nbsp;<span class="font-weight-bold" id="devserver"></span></td>
                         </tr>
                         <tr class="bg-white">
-                            <td>AX-Test-Dev<span class="small">&nbsp;-&nbsp;<a target="_blank"
-                                        href="https://sqswebapiaxtestdev.modan.ch/hangfire">Hangfire
-                                    </a></span></td>
+                            <td>Dev-Dev<span class="small">&nbsp;-&nbsp;<a target="_blank" href="https://sqswebapidev_dev.modan.ch/hangfire">Hangfire</a></span></td>
                             <td class="text-right small">App zur Entwicklungszeit</td>
                             <td></td>
-                            <td class="text-right"><a id="axtestdevserver_label" class="small"></a>&nbsp;<span
-                                    class="font-weight-bold" id="axtestdevserver"></span></td>
+                            <td class="text-right"><a id="devdevserver_label" class="small"></a>&nbsp;<span class="font-weight-bold" id="devdevserver"></span></td>
                         </tr>
                     </tbody>
                 </table>
