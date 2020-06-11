@@ -97,6 +97,31 @@ function refresh() {
     });
 
     reqstart();
+    makeLink("#axtestserver_label", "sqswebapiaxtest.modan.ch", true, true);
+    makeWait("#axtestserver");
+    $.ajax({
+        url: "https://sqswebapiaxtest.modan.ch/breeze/auditboltbreeze/getserverinfo"
+    }).done(function (response) {
+        setTimeout(function () {
+            $("#axtestserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
+    });
+
+    reqstart();
+    makeLink("#axtestdevserver_label", "sqswebapiaxtestdev.modan.ch", true, true);
+    makeWait("#axtestdevserver");
+    $.ajax({
+        url: "https://sqswebapiaxtestdev.modan.ch/breeze/auditboltbreeze/getserverinfo"
+    }).done(function (response) {
+        setTimeout(function () {
+            $("#axtestdevserver").text(response.Release + "." + response.MainVersion + "." + response.SubVersion);
+            reqend();
+        }, getTime());
+    });
+
+
+    reqstart();
     makeLink("#devserver_label", "sqswebapidev.modan.ch", true, true);
     makeWait("#devserver");
     $.ajax({
@@ -122,6 +147,37 @@ function refresh() {
 
 
     //electron
+    reqstart();
+    makeWait("#windowaxtestclient");
+    $.ajax({
+        url: "http://update.modan.ch/sqs/audit/axtest/win64/RELEASES?_=" + new Date().getTime()
+    }).done(function (response) {
+        setTimeout(function () {
+            var idx = response.indexOf(" sqsauditappaxtest-");
+            var str = response.substr(idx + 19, 22);
+            var idx2 = str.indexOf("-");
+            str = str.substr(0, idx2);
+
+            $("#windowaxtestclient").text(str);
+            reqend();
+        }, getTime());
+    });
+
+    reqstart();
+    makeWait("#windowtestclient");
+    $.ajax({
+        url: "http://update.modan.ch/sqs/audit/test/win64/RELEASES?_=" + new Date().getTime()
+    }).done(function (response) {
+        setTimeout(function () {
+            var idx = response.indexOf(" sqsauditapptest-");
+            var str = response.substr(idx + 17, 20);
+            var idx2 = str.indexOf("-");
+            str = str.substr(0, idx2);
+
+            $("#windowtestclient").text(str);
+            reqend();
+        }, getTime());
+    });
 
     reqstart();
     makeWait("#windowclient");
@@ -151,22 +207,6 @@ function refresh() {
             str = str.substr(0, idx2);
 
             $("#windowpreclient").text(str);
-            reqend();
-        }, getTime());
-    });
-
-    reqstart();
-    makeWait("#windowtestclient");
-    $.ajax({
-        url: "http://update.modan.ch/sqs/audit/test/win64/RELEASES?_=" + new Date().getTime()
-    }).done(function (response) {
-        setTimeout(function () {
-            var idx = response.indexOf(" sqsauditapptest-");
-            var str = response.substr(idx + 17, 20);
-            var idx2 = str.indexOf("-");
-            str = str.substr(0, idx2);
-
-            $("#windowtestclient").text(str);
             reqend();
         }, getTime());
     });
@@ -203,7 +243,6 @@ function refresh() {
     }
 
     //webapps
-
     reqstart();
     makeWait("#prodclient");
     makeLink("#prodclient_label", "auditapp.sqs.ch");
@@ -252,6 +291,23 @@ function refresh() {
         }, getTime());
     }).fail(function () {
         generateError("#testclient");
+        reqend();
+    });
+
+    reqstart();
+    makeWait("#axtestclient");
+    makeLink("#axtestclient_label", "sqsaxtest.modan.ch");
+    $.ajax({
+        url: "https://sqsaxtest.modan.ch/index.html",
+        crossDomain: true
+    }).done(function (response) {
+        setTimeout(function () {
+            var str = getVnr(response);
+            $("#axtestclient").text(vstrwp(str));
+            reqend();
+        }, getTime());
+    }).fail(function () {
+        generateError("#axtestclient");
         reqend();
     });
 
